@@ -1,0 +1,16 @@
+{% extends "manager.html" %}
+{% block content %}
+<h2 align="center" class="layout_padding2-top layout_padding2-bottom">CUREENT GROUP LESSONS</h2>
+
+<table align= "center" class="table table-borderless table-hover">
+    
+    <tr>
+        <th>ID</th><th>NAME</th><th>DESCRIPTION</th><th>TIME</th>
+    </tr>
+    {% for lesson in lessonlist %}
+    <tr>
+        <td>{{lesson[1]}}</td><td>{{lesson[6]}}</td><td>{{lesson[7]}}</td><td>{{lesson[8]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "trainer.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">Trainer Details</h2>
+<form class="update" method="POST" action="/trainer/edit"></form>
+<table align= "center" class="table table-hover">
+   
+    <tr>
+        <th></th><th>NAME</th><th>GENDER</th><th>DOB</th><th>LOCATION</th><th>HOUSE #</th>
+        <th>PHONE #</th><th>EMAIL</th><th>SPECIALIZATION</th><th>QUALIFICATION</th><th>CERTIFICATION</th>
+    </tr>
+        {% for staff in profileList %}
+        <tr>    
+            <td><input type="text" name="tid" value="{{staff[0]}}"disabled style="display:none;"></td><td>{{staff[2]}}</td><td>{{staff[6]}}</td><td>{{staff[3]}}</td><td>{{staff[5]}}</td><td>{{staff[4]}}</td>
+            <td>{{staff[11]}}</td><td>{{staff[10]}}</td><td>{{staff[7]}}</td><td>{{staff[8]}}</td><td>{{staff[9]}}</td>
+        </tr>
+        {% endfor %}  
+</table>
+
+<Form action="/trainer" method="POST">
+    <input type="submit" value="Back">
+</Form>
+
+{% endblock %}

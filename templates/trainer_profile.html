@@ -1,0 +1,44 @@
+{% extends "trainer.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">YOUR PROFILE</h2>
+
+<table align= "center" class="table table-borderless table-hover">
+   
+    <tr>
+        <th>NAME</th><th>GENDER</th><th>DOB</th><th>LOCATION</th><th>HOUSE #</th>
+    </tr>
+        {% for staff in profileList %}
+        <tr>
+            <td>{{staff[2]}}</td><td>{{staff[6]}}</td><td>{{staff[3]}}</td><td>{{staff[5]}}</td><td>{{staff[4]}}</td>
+        </tr>
+        {% endfor %}
+    
+    <tr>
+       <th>PHONE #</th><th>EMAIL</th><th>SPECIALIZATION</th><th>QUALIFICATION</th><th>CERTIFICATION</th>
+    </tr>
+        {% for staff in profileList %}
+        <tr>
+            <td>{{staff[11]}}</td><td>{{staff[10]}}</td><td>{{staff[7]}}</td><td>{{staff[8]}}</td><td>{{staff[9]}}</td>
+        </tr>
+        {% endfor %}
+    
+     <tr>
+       <th>PESIONAL SESSION</th><th>DESCRIPTION</th>
+    </tr>
+        {% for staff in profileList %}
+        <tr>
+            <td>{{staff[14]}}</td><td>{{staff[15]}}</td>
+        </tr>
+        {% endfor %}
+     
+</table>
+<Form action="/trainer" method="POST">
+    <input type="submit" value="Back">
+</Form>
+<Form action="/trainer/update" method="POST">
+    <input type="submit" value="Edit Profile">
+</Form>
+
+
+{% endblock %}

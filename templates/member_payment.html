@@ -1,0 +1,61 @@
+{% extends "member.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">Process a payment</h2>
+
+<form id="/member/payment" name="/member/payment" action="/member/payment" method="POST">
+<table class="table table-borderless">
+   
+<section>
+<!--display unique member ids-->
+    <tr>
+    <td><form action="/member/payment" method="POST">
+      <label for="member_id">Member ID:*</label>
+      <select required name="member_id" id="member_id" class="form=select">
+        {% for item in paymentlist %}
+        <option value="{{item[0]}}">{{item[0]}}</option>
+        {% endfor %}
+        </select>
+
+    <td><form action="/member/payment" method="POST">
+    <label for="Cardholder's name">Cardholder's name:*</label>
+    <input name="Cardholder's name" required="required"/></td>
+</tr> 
+
+<tr>
+    <td><form action="/member/payment" method="POST">
+    <label for="amount">Amount:*</label>
+    <input type="number" name="amount" placeholder="eg.128 eg.60"required="required"/></td>
+
+    <td><form action="/member/payment" method="POST">
+    <label for="subscriptiontype">Subscription type</label>
+    <select name="subscriptiontype" id="subscriptiontype">
+    <option value="Monthly subscription fee">Monthly subscription fee</option>
+    <option value="Trainer course">Personal training session</option>
+    <option value="Others">Others</option>
+    </select></td>
+</tr>
+<tr>
+    <td><form action="/member/payment" method="POST">
+    <label for="credit-card">Card number:*</label>
+    <input type="text" name="credit-card" id="credit-card"
+    placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19" required="required"/></td>
+</tr> 
+
+
+<tr>
+    <td><form action="/member/payment" method="POST">
+    <label for="Expire">Expire:*</label>
+    <input type="text" name="Expire" placeholder="MMYY" pattern="[0-9]{4}" required="required"/></td>
+    <td><form action="/member/payment" method="POST">
+    <label for="Cvv">Cvv:*</label>
+    <input type="text" name="Cvv" placeholder="xxx" pattern="[0-9]{3}"required="required"/></td>
+</tr> 
+<tr> 
+    <td><input type="submit" value="Pay Now" ></td> <td><input type="reset" value="Cancel" > </td>
+</tr>
+</table>
+</form>
+<script src="{{url_for('static', filename='js/cardvalidation.js')}}"></script>
+
+{% endblock %}

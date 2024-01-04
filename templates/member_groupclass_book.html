@@ -1,0 +1,45 @@
+{% extends "member.html" %}
+{% block content %}
+<h2 align="center" class="layout_padding2-top">BOOK GROUP LESSON </h2>
+
+<section>
+  <form align="center" action="booked" method="POST">
+    <div class="form-group col-md-4">
+      <label for="inputid">Member ID:</label>
+      <input name="inputid" placeholder="Enter your Member ID" class="form-control">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="choosesesh">Available Lessions</label>
+      <select id="choosesesh" class="form-control">
+        <option selected>Choose...</option>
+        {% for class in groupClass %}
+        {% set bookclass = class[4]|string()+ " " + class[1] + " " + class[6]|string()+ " " + class[7]|string() %}
+        <option>{{bookclass}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="groupclasssessionid">Group Lesson ID</label>
+      <select name="groupclasssessionid" class="form-control">
+        <option selected>Choose...</option>
+        {% for class in groupClass %}
+        <option>{{class[4]}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</section>
+
+<h2 align="center" class="layout_padding2-top">CANCEL LESSON</h2>
+  <section class="client_section layout_padding2-top">
+    <div align="center" class="layout_padding-bottom">
+      <Form action="/member/cancelbooking/groupcancelled" method="POST">
+          <input type="number" name="groupseshid" placeholder="Group Class Booking ID">
+          <input type="submit" value="Cancel Booking">
+      </form>
+    </div>
+  </section>
+{% endblock %}

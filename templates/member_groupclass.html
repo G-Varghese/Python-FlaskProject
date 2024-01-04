@@ -1,0 +1,34 @@
+{% extends "member.html" %}
+{% block content %}
+<h2 align="center" class="layout_padding2-top layout_padding2-bottom"><span> Group</span> Lessons </h2>
+<table class="table table-borderless table-hover">
+    <tr>
+      <th>LESSON ID</th><th>NAME</th><th>DESCRIPTION</th><th>OCCURANCE</th>
+    </tr>
+        {% for class in groupClass %}
+        <tr>
+          <td>{{class[0]}}</td><td>{{class[1]}}</td><td>{{class[2]}}</td>
+          <td>{{class[3]}}</td>
+        </tr>
+        {% endfor %}   
+</table>
+</div>
+</div>
+</div>
+</div>
+<Form align="center" class="layout_padding2-top" action="/member/groupclass/book" method="POST">
+<input type="submit" value="Book Lessons">
+</form>
+</section>
+
+<h2 align="center" class="layout_padding2-top">CANCEL LESSON</h2>
+
+<section class="client_section layout_padding2-top">
+<div align="center" class="layout_padding-bottom">
+<Form action="/member/cancelbooking/groupcancelled" method="POST">
+<input type="number" name="groupseshid" placeholder="Group Class Booking ID">
+<input type="submit" value="Cancel Booking">
+</form>
+</div>
+</section>
+{% endblock %}

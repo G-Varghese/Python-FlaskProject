@@ -1,0 +1,20 @@
+{% extends "manager.html" %}
+{% block content %}
+
+  <h2 align="center" class="layout_padding2-top">View Popular Groupclasses</h2>
+  <table align= "center" class="table table-striped">
+
+    <tr>
+      <th>Groupclass Name</th><th>Groupclass ID</th><th>Num_Bookings</th>
+        <tr>
+        
+        {% for item in popularclasslist %}
+        <tr>
+            <td>{{item[1]}}</td>  
+            <td>{{item[0]}}</td>  
+            <td>{{item[3]}}</td>  
+        </tr>
+        {% endfor %}
+  </table>
+
+{% endblock %}

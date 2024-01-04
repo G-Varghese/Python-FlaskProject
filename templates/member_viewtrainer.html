@@ -1,0 +1,25 @@
+{% extends "member.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top layout_padding2-bottom">OUR TRAINERS</h2>
+
+<table align= "center" class="table table-borderless table-hover">
+    
+    <tr>
+        <th>NAME</th><th>GENDER</th><th>LOCATION</th><th>Details</th>
+    </tr>
+        {% for staff in trainersList %}
+        <tr>
+            <td>{{staff[2]}}</td><td>{{staff[6]}}</td><td>{{staff[5]}}</td>
+            <td>
+                <Form action="/member/viewtrainer/trainerdetail" method="POST">
+                    <input type="hidden" name="trainerid" value="{{staff[0]}}">
+                    <button type="submit" class="nav-item">
+                </Form>
+            </td>
+        </tr>
+        {% endfor %}
+        
+</table>
+
+{% endblock %}

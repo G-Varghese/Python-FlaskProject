@@ -1,0 +1,26 @@
+{% extends "manager.html" %}
+{% block content %}
+
+<html>
+<head>
+	<title>Send Email</title>
+</head>
+<body>
+	<h1 align="center" class="layout_padding2-top"></h1>
+	<form align="center" method="post" action="{{ url_for('send_email') }}">
+		<label for="recipients">Recipients:</label>
+		<input type="email" name="recipients" id="recipients" required><br><br>
+
+		<label for="subject">Subject:</label>
+		<input type="text" name="subject" id="subject" required><br><br>
+
+		<label for="message">Message:</label><br>
+		<textarea name="message" id="message" rows="10" cols="50" required></textarea><br><br>
+
+		<input type="submit" value="Send">
+	</form>
+    
+</body>
+</html>
+
+{% endblock %}

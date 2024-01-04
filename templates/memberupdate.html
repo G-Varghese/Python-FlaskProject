@@ -1,0 +1,77 @@
+
+{% extends "member.html" %}
+{% block content %}
+<form class="update" method="POST" action="/member/memberupdate">
+    <h3>Update any change of information</h3>
+<table class="table table-striped">
+    <table class="table table-striped">
+        <tr>
+            <td><label for="mid">Member ID</label></td>
+            <td><input name="mid" value="{{memberlist[0]}}" id="mid" readonly></td>
+        </tr>  
+        <tr>
+            <td><label for="name">Name</label> </td>
+            <td><input name="name" value="{{memberlist[2]}}" id="name" readonly></td>
+        </tr>
+        <tr>
+            <td><label for="gender">Gender</label> </td> 
+            <td> <select name="gender" id="gender">
+                    <option value="{{memberlist[3]}}">{{memberlist[3]}}</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                  </select></td>     
+        </tr>
+        <tr>
+            <td><label for="dob">Birth Date</label></td>
+            <td><input name="dob" type="date" value="{{memberlist[4]}}" id="dob"></td>
+        </tr>
+        <tr>
+            <td><label for="status">Status</label></td>
+            <td> <select name="status" id="status">
+                <option value="{{memberlist[5]}}">{{memberlist[5]}}</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select></td>     
+        </tr>
+        <tr>
+            <td><label for="joindate">Date of Join</label> </td>
+            <td><input name="joindate" value="{{memberlist[6]}}" id="joindate" readonly></td>
+        </tr>
+        <tr>
+            <td><label for="lastpaydate">Last Pay Date</label> </td>
+            <td><input name="lastpaydate" value="{{memberlist[7]}}" id="lastpaydate"></td>
+        </tr>
+        <tr>
+            <td><label for="houseno">House No</label> </td>
+            <td><input name="houseno" value="{{memberlist[8]}}" id="houseno"></td>
+        </tr>
+        <tr>
+            <td><label for="suburb">Suburb</label> </td>
+            <td><input name="suburb" value="{{memberlist[9]}}" id="suburb"></td>
+        </tr>
+        <tr>
+            <td><label for="city">City</label> </td>
+            <td><input name="city" value="{{memberlist[10]}}" id="city"></td>
+        </tr>
+        <tr>
+            <td><label for="postalcode">Postal Code</label></td> 
+            <td><input name="postalcode" value="{{memberlist[11]}}" id="postalcode" required></td>
+        </tr>
+        <tr>
+            <td><label for="phone">Contact No.</label> </td>
+            <td><input name="phone" value="{{memberlist[12]}}" pattern="[0-9]{9,10,11}" id="phone" required></td>
+        </tr>
+        <tr>
+            <td><label for="email">E_mail</label> </td>
+            <td><input type="email" name="email" value="{{memberlist[13]}}" id="email" required></td>
+        </tr>
+
+</table>
+
+
+<input type="submit" value="SUBMIT">
+</form>
+<script src="{{url_for('static', filename='js/datevalidation.js')}}"></script>
+
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends "manager.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">New User Created</h2>
+
+<h5>New user information</h5>
+</tr>
+
+<h7>*User name and password will be used by members for log-in*</h7>
+</tr>
+
+{% for item in newuser %}
+
+<form class="created" method="POST" action="/manager_addamember">
+<table class="table table-striped">
+    <tr>
+        <td><label for="userid">User ID</label></td>
+        <td><input name="userid" value="{{item[0]}}" id="userid" readonly ></td>
+    </tr>  
+    <tr>
+        <td><label for="username">User Name</label></td>
+        <td><input name="username" value="{{item[1]}}" id="username" readonly ></td>
+    </tr> 
+    <tr>
+        <td><label for="password">Password</label></td>
+        <td><input name="password" value="{{item[2]}}" id="password" readonly ></td>
+    </tr> 
+    <tr>
+        <td><label for="securitycode">Security Code</label></td>
+        <td><input name="securitycode" value="{{item[3]}}" id="securitycode" readonly ></td>
+    </tr> 
+{% endfor %}
+</table>
+
+
+
+<!-- a form for getting the userinput for the form-->
+
+<h5>Please fill out the member information form</h5>
+
+<form id="addamember" name="addamember" action="/manager_addamember" method="POST">
+<table class="table table-striped">
+           
+    <tr>
+        <td><form action="/manager.addamember" method="POST">
+        <label for="member_name">Name</label></td>
+        <td><input name="member_name" placeholder="Ed Sheeran"/></td>
+    </tr>
+    <tr>
+        <td><form action="/manager.addamember" method="POST">
+        <label for="member_gender">Gender:</label></td>
+        <td><select name="member_gender" id="member_gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td><form action="/manager.addamember" method="POST">
+        <label for="member_phone">Phone number</label></td>
+        <td><input name="member_phone" placeholder="2123456789" pattern="[0-9]{10,11}" required/></td>
+    </tr>
+    <tr>
+        <td><form action="/manager.addamember" method="POST">
+        <label for="member_email">Email</label></td>
+        <td><input type="email" name="member_email" required/></td>
+    </tr>
+    <tr>
+        <td><form action="/manager.addamember" method="POST">
+        <label for="member_dob">Date of birth</label></td>
+        <td><input type="date" name="member_dob" placeholder="YYYY-MM-DD"/></td>
+    </tr>
+
+<!-- to get a hidden current date input by using the 'loandate' variable-->
+    <input type="hidden" name="member_joindate" value="{{member_joindate}}">
+
+    <tr>
+        <td><form action="/manager.addamember" method="POST">
+        <label for="member_houseaddress">House/apt number and road name</label></td>
+        <td><input name="member_houseaddress" placeholder="1 Kay St"/></td>
+    </tr>
+
+    <tr>
+        <td><form action="/manager.addamember" method="POST">
+        <label for="member_suburb">Suburb</label></td>
+        <td><input name="member_suburb"/></td>
+    </tr>
+    <tr>
+        <td><form action="/manager.addamember" method="POST">
+        <label for="member_city">City</label></td>
+        <td><input name="member_city"/></td>
+    </tr>
+
+    <tr>
+        <td><form action="/manager.addamember" method="POST">
+        <label for="member_postalcode">Postalcode</label></td>
+        <td><input name="member_postalcode" placeholder="6010" required/></td>
+    </tr>
+
+
+    
+    <tr> 
+        <td><input type="submit" value="Add this member" ></td> <td><input type="reset" value="Rest" > </td>
+    </tr>
+</table>
+
+</form>
+<script src="{{url_for('static', filename='js/datevalidation.js')}}"></script>
+
+{% endblock %}
+

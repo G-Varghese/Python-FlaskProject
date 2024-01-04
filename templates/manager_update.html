@@ -1,0 +1,48 @@
+{% extends "manager.html" %}
+{% block content %}
+
+
+<h2 align="center" style="padding-top: 20px; padding-bottom: 20px;">Update Member Information</h2>
+<h4 style="padding-top: 20px; padding-bottom: 20px;" >Search to find a member</h4>
+<fieldset id="searchmember">
+    <legend></legend>
+    <form action="/manager_searchmember" method="POST">
+        <label for="manager_searchmember">Search by member name:</label>
+        <input name="manager_searchmember"/>
+        <input type="submit"/>
+    </form>
+    
+    
+<fieldset id="searchmemberid">
+    
+    <form action="/manager_searchmemberid" method="POST">
+        <label for="manager_searchmemberid">Search by member ID:</label>
+        <input name="manager_searchmemberid"/>
+        <input type="submit"/>
+    </form>    
+
+    <h2 align="center" style="padding-top: 20px; padding-bottom: 20px;" >All MEMBERS</h2>
+    <h4 style="padding-top: 20px; padding-bottom: 20px;" >Click the Member ID to select</h4>
+
+<table align= "center" class="table table-striped">
+
+    <tr>
+      <th>MEMBER ID</th><th>USER ID</th><th>NAME</th><th>GENDER</th><th>DOB</th><th>PHONE</th>
+      <th>EMAIL</th><th>STATUS</th><th>JOIN DATE</th><th>LAST PAID</th><th>ADDRESS</th>
+    </tr>
+        {% for item in memberlist %}
+        <tr>
+          <td>
+            <Form action="/manager_searchmemberid" method="POST">
+            <input type="hidden" name="manager_searchmemberid" value="{{item[0]}}">
+            <button type="submit" class="nav-item">{{item[0]}}</Form></td>  
+            <td>{{item[1]}}</td>  <td>{{item[2]}}</td>  <td>{{item[3]}}</td>
+            <td>{{item[4]}}</td>  <td>{{item[12]}}</td> <td>{{item[13]}}</td> <td>{{item[5]}}</td>
+            <td>{{item[6]}}</td>  <td>{{item[7]}}</td>  <td>{{item[8]}} {{item[9]}} {{item[10]}} {{item[11]}}</td>
+        </tr>
+        {% endfor %}
+        
+</table>
+</Form>
+
+{% endblock %}

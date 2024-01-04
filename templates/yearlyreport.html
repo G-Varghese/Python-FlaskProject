@@ -1,0 +1,19 @@
+
+{% extends "manager.html" %}
+{% block content %}
+
+<br><br>
+<h3 style="text-align: center; font-style: italic;"> Yearly Based Report</h3>
+<a class="nav-link" href="{{ url_for('report') }}">BACK</a><br><br>
+<table class="table table-striped">
+   
+    <tr> <th>YEAR</th><th>TOTAL AMOUNT</th></tr>
+    {% for amt in Amount %}
+        <tr>
+                <td>{{amt[0]}}</td>
+                <td>{{amt[1]}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

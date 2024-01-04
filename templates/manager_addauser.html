@@ -1,0 +1,39 @@
+{% extends "manager.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">Add New User</h2>
+
+</br> 
+<form align="center" id="manager_addauser" name="manager_addauser" action="/manager_addauser" method="POST">
+    <fieldset>
+<!-- a form for getting the userinput for the form-->
+<section>
+    <h5>Enter username password and security answer</h5>
+
+<br>
+    <form action="/manager.addauser" method="POST">
+    <label for="username">User Name:</label>
+    <input name="username"/>
+</br>
+
+<br>
+    <form action="/manager.addauser" method="POST">
+    <label for="password">Password:</label>
+    <input name="password"/>
+</br>
+
+<br>
+    <form action="/manager.addauser" method="POST">
+    <label for="securityanswer">Security code for retrieving password:</label>
+    <input name="securityanswer"/>
+</br>
+
+<br> 
+    <input type="submit" value="Next" > <input type="reset" value="Rest" > 
+</br>
+</section>
+
+</form>
+  
+    </fieldset>
+{% endblock %}

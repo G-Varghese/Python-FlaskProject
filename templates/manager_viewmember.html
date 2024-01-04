@@ -1,0 +1,71 @@
+{% extends "manager.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">Your Search Result</h2>
+
+<!-- to print out the result in a table-->
+<form class="update" method="POST" action="/manager_memberedit">
+<table class="table table-striped">
+    
+    <tr>
+        <td><label for="memberid">Member ID</label></td>
+        <td><input name="memberid" value="{{searchmemberlist[0]}}" id="memberid" readonly ></td>
+    </tr>  
+    <tr>
+        <td><label for="name">Name</label> </td>
+         <td><input name="name" value="{{searchmemberlist[2]}}" id="name" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="gender">Gender</label> </td>
+        <td><input name="gender" value="{{searchmemberlist[3]}}" id="gender" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="dob">Birth Date</label></td>
+        <td><input name="dob" value="{{searchmemberlist[4]}}" id="dob" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="status">Status</label></td>
+        <td><input name="status" value="{{searchmemberlist[5]}}" id="status" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="joindate">Date of Join</label> </td>
+        <td><input name="joindate" value="{{searchmemberlist[6]}}" id="joindate" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="lastpaydate">Last Pay Date</label> </td>
+        <td><input name="lastpaydate" value="{{searchmemberlist[7]}}" id="lastpaydate" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="houseno">House No</label> </td>
+        <td><input name="houseno" value="{{searchmemberlist[8]}}" id="houseno" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="suburb">Suburb</label> </td>
+        <td><input name="suburb" value="{{searchmemberlist[9]}}" id="suburb" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="city">City</label> </td>
+        <td><input name="city" value="{{searchmemberlist[10]}}" id="city" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="postalcode">Postal Code</label></td> 
+        <td><input name="postalcode" value="{{searchmemberlist[11]}}" id="postalcode" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="phone">Contact No.</label> </td>
+        <td><input name="phone" value="{{searchmemberlist[12]}}" id="phone" disabled></td>
+    </tr>
+    <tr>
+        <td><label for="email">E_mail</label> </td>
+        <td><input name="email" value="{{searchmemberlist[13]}}" id="email" disabled></td>
+    </tr>
+    
+</table>
+    
+<input type="submit" value="Update">
+</form>
+    
+
+
+    
+{% endblock %}

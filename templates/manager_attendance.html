@@ -1,0 +1,45 @@
+{% extends "manager.html" %}
+{% block content %}
+
+
+<h2 align="center" class="padding-top: 20px; padding-bottom: 20px" style="padding-top: 20px; padding-bottom: 20px">To view a member's attendance</h2>
+
+   
+<fieldset id="searchmemberid">
+    
+    <form action="/manager_searchattendance" method="POST">
+        <label for="manager_searchattendance">Search by member name:</label>
+        <input name="member_name"/>
+        <input type="submit"/>
+    </form>    
+
+
+<h2 align="center" class="layout_padding2-top">Attendance Report</h2>
+
+    <table align= "center" class="table table-striped">
+
+        <tr>
+          <th>Date</th><th>In</th><th>Out</th><th>Member ID</th><th>NAME</th>
+          <th>Hours stayed</th><th>Session</th>
+        </tr>
+        {% set attendancereport = namespace(id = 2) %} 
+
+            {% for item in attendancelist %}
+
+            <tr>
+                {% if attendancereport.id != item[2] %}
+                <td>{{item[2]}}</td> 
+
+                {% set attendancereport.id = item[2] %}
+                {% else %}
+                <td></td>
+                {% endif %}
+                <td>{{item[3]}}</td>    <td>{{item[4]}}</td>    <td>{{item[1]}}</td>  
+                <td>{{item[9]}}</td>    <td>{{item[5]}}</td>    <td>{{item[6]}}</td> 
+                
+            </tr>
+            {% endfor %}
+            
+      </table>
+    
+{% endblock %}

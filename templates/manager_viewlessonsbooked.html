@@ -1,0 +1,16 @@
+{% extends "manager.html" %}
+{% block content %}
+<h2 align="center" class="layout_padding2-top layout_padding2-bottom">BOOKED GROUP LESSONS</h2>
+
+<table align= "center" class="table table-borderless table-hover">
+    
+    <tr>
+        <th>MEMBER ID</th><th>NAME</th><th>MEMBER STATUS</th><th>PHONE</th><th>EMAIL</th><th>GROUP SESS ID</th><th>DATE</th><th>TIME</th>
+    </tr>
+    {% for book in booklist %}
+    <tr>
+        <td>{{book[1]}}</td><td>{{book[11]}}</td><td>{{book[14]}}</td><td>{{book[21]}}</td><td>{{book[22]}}</td><td>{{book[2]}}</td><td>{{book[6]}}</td><td>{{book[7]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

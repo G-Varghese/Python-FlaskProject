@@ -1,0 +1,38 @@
+{% extends "member.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">BOOK PERSONAL SESSION</h2>
+
+<section>
+  <form align="centre" action="bookpersonal/booked" method="POST">
+    <div class="form-group col-md-2">
+      <label for="input_id">Member ID</label>
+      <input type="number" class="form-control" name="input_id">
+    </div>
+    <div class="form-group col-md-8">
+      <label for="choosesesh">Available Personal Session</label>
+      <select id="choosesesh" class="form-control">
+        <option selected>Choose...</option>
+        {% for book in bookPersonal %}
+        {% set booksession = book[4]|string()+ " " + book[2] + " " + book[3] + " " + book[5]|string()+ " " + book[6]|string() %}
+        <option>{{booksession}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="persesshid">Personal Training Session ID</label>
+      <select class="form-control" name="persessh_id">
+        <option selected>Choose...</option>
+        {% for book in bookPersonal %}
+        <option>{{book[4]}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</section>
+
+{% endblock %}
+

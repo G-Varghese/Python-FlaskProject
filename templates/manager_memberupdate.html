@@ -1,0 +1,76 @@
+{% extends "manager.html" %}
+{% block content %}
+
+
+
+<form class="update" id="manager_memberupdate" name="manager_memberupdate"  method="POST" action="/manager_memberupdate" style="padding-top: 20px; padding-bottom: 20px;">
+<table class="table table-striped">
+    
+        <tr>
+            <td><label for="mid">Member ID</label></td>
+            <td><input name="mid" value="{{memberlist[0]}}" id="mid" readonly></td>
+        </tr>  
+        <tr>
+            <td><label for="name">Name</label> </td>
+            <td><input name="name" value="{{memberlist[2]}}" id="name" readonly></td>
+        </tr>
+        <tr>
+            <td><label for="gender">Gender</label> </td>
+            <td><select name="gender" id="gender" >
+                <option value="{{memberlist[3]}}">{{memberlist[3]}}</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td><label for="dob">Birth Date</label></td>
+            <td><input name="dob" value="{{memberlist[4]}}" id="dob" placeholder="YYYY-MM-DD"></td>
+        </tr>
+        <tr>
+            <td><label for="status">Status</label></td>
+            <td><select name="status" id="status">
+                <option value="{{memberlist[5]}}">{{memberlist[5]}}</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td><label for="joindate">Date of Join</label> </td>
+            <td><input name="joindate" value="{{memberlist[6]}}" id="joindate" placeholder="YYYY-MM-DD"></td>
+        </tr>
+        <tr>
+            <td><label for="lastpaydate">Last Pay Date</label> </td>
+            <td><input name="lastpaydate" value="{{memberlist[7]}}" id="lastpaydate" readonly></td>
+        </tr>
+        <tr>
+            <td><label for="houseno">House No</label> </td>
+            <td><input name="houseno" value="{{memberlist[8]}}" id="houseno" placeholder="eg. 1 Kay St"></td>
+        </tr>
+        <tr>
+            <td><label for="suburb">Suburb</label> </td>
+            <td><input name="suburb" value="{{memberlist[9]}}" id="suburb"></td>
+        </tr>
+        <tr>
+            <td><label for="city">City</label> </td>
+            <td><input name="city" value="{{memberlist[10]}}" id="city"></td>
+        </tr>
+        <tr>
+            <td><label for="postalcode">Postal Code</label></td> 
+            <td><input name="postalcode" value="{{memberlist[11]}}" id="postalcode" placeholder="eg. 6010"></td>
+        </tr>
+        <tr>
+            <td><label for="phone">Contact No.</label> </td>
+            <td><input name="phone" value="{{memberlist[12]}}" id="phone" placeholder="2123456789"></td>
+        </tr>
+        <tr>
+            <td><label for="email">E_mail</label> </td>
+            <td><input name="email" value="{{memberlist[13]}}" id="email"></td>
+        </tr>
+
+</table>
+
+<input type="submit" value="Submit">
+</form>
+
+{% endblock %}

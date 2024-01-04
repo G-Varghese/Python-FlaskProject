@@ -1,0 +1,120 @@
+{% extends "member.html" %}
+{% block content %}
+
+<form class="update" method="POST" action="/member/memberedit">
+    <h3>DETAILS OF THE MEMBER</h3>
+    <table>
+        <tr>
+            <td style="width:68%;">
+                <table class="table table-striped">
+                    <tr>
+                        <td><label for="memberid">Member ID</label></td>
+                        <td><input name="memberid" value="{{memberlist[0]}}" id="memberid" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="name">Name</label> </td>
+                        <td><input name="name" value="{{memberlist[2]}}" id="name" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="gender">Gender</label> </td>
+                        <td><input name="gender" value="{{memberlist[3]}}" id="gender" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="dob">Birth Date</label></td>
+                        <td><input name="dob" value="{{memberlist[4]}}" id="dob" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="status">Status</label></td>
+                        <td><input name="status" value="{{memberlist[5]}}" id="status" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="joindate">Date of Join</label> </td>
+                        <td><input name="joindate" value="{{memberlist[6]}}" id="joindate" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lastpaydate">Last Pay Date</label> </td>
+                        <td><input name="lastpaydate" value="{{memberlist[7]}}" id="lastpaydate" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="houseno">House No</label> </td>
+                        <td><input name="houseno" value="{{memberlist[8]}}" id="houseno" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="suburb">Suburb</label> </td>
+                        <td><input name="suburb" value="{{memberlist[9]}}" id="suburb" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="city">City</label> </td>
+                        <td><input name="city" value="{{memberlist[10]}}" id="city" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="postalcode">Postal Code</label></td>
+                        <td><input name="postalcode" value="{{memberlist[11]}}" id="postalcode" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="phone">Contact No.</label> </td>
+                        <td><input name="phone" value="{{memberlist[12]}}" id="phone" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">E_mail</label> </td>
+                        <td><input name="email" value="{{memberlist[13]}}" id="email" readonly></td>
+                    </tr>
+                </table>
+            </td>
+            <td style=" width: 37%; vertical-align: top;">
+                <h3>Booked Specialized Classes</h3>
+                {% if not special %}
+                <p>No booked Classes</p>
+                {% else %}
+                <table class="table table-striped" style="width: fit-content;">
+                    <tr>
+                        <th>Class Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                    {% for sclass in special %}
+                    <tr>
+                        <td>{{sclass[0]}}</td>
+                        <td>{{sclass[1]}}</td>
+                        <td>{{sclass[2]}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+                {% endif %}
+
+                <h3>Booked Group Classes</h3>
+                {% if not group %}
+                <p>No booked group Classes</p>
+                {% else %}
+                <table class="table table-striped" style="width: fit-content;">
+                    <tr>
+                        <th>Class Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+
+                    {% for sclass in group %}
+
+                    <tr>
+                        <td>{{sclass[0]}}</td>
+                        <td>{{sclass[1]}}</td>
+                        <td>{{sclass[2]}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+
+
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="UPDATE PROFILE">
+
+</form>
+<form class="changepassword" method="POST" action="/member/changepassword">
+    <input type="submit" value="CHANGE PASSWORD">
+</form>
+
+{% endblock %}

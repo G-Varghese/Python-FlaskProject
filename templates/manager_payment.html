@@ -1,0 +1,80 @@
+{% extends "manager.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top" class="layout_padding2-bottom" style="padding-top: 20px; padding-bottom: 20px">Process a payment to renew a member's monthly subscription</h2>
+
+<form id="/manager_payment" name="/manager_payment" action="/manager_payment" method="POST">
+<table class="table table-borderless">
+   
+<section>
+<tr>
+    <td><form action="/manager_payment" method="POST">
+    <label for="member_id">Member ID:*</label>
+    <input name="member_id" type="number" min="1001" placeholder="xxxx" required="required"/></td>
+
+    <td><form action="/manager_payment" method="POST">
+    <label for="Cardholder's name">Cardholder's name:*</label>
+    <input name="Cardholder's name" required="required"/></td>
+</tr> 
+
+<tr>
+    <td><form action="/manager_payment" method="POST">
+    <label for="amount">Amount:*</label>
+    <input type="number" name="amount" placeholder="eg.128/60" required="required"/></td>
+
+    <td><form action="/manager_payment" method="POST">
+    <label for="subscriptiontype">Subscription type:*</label>
+    <select name="subscriptiontype" id="subscriptiontype">
+    <option value="Monthly subscription fee">Monthly subscription fee</option>
+    <option value="Trainer course">Personal training session</option>
+    <option value="Others">Others</option>
+    </select></td>
+</tr>
+<tr>
+    <td><form action="/manager_payment" method="POST">
+    <label for="Card number">Card number:*</label>
+    <input type="text" name="Card number" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19" required="required"/></td>
+</tr> 
+
+
+<tr>
+    <td><form action="/manager_payment" method="POST">
+    <label for="Expire">Expire:*</label>
+    <input type="text" name="Expire" placeholder="MMYY" pattern="[0-9]{4}" required="required"/></td>
+    <td><form action="/manager_payment" method="POST">
+    <label for="Cvv">Cvv:*</label>
+    <input type="text" name="Cvv" placeholder="xxx" pattern="[0-9]{3}"required="required"/></td>
+</tr> 
+<tr> 
+    <td><input type="submit" value="Process payment" ></td> <td><input type="reset" value="Rest" > </td>
+</tr>
+</table>
+</form>
+<script src="{{url_for('static', filename='js/cardvalidation.js')}}"></script>
+
+
+<h2 align="center" class="layout_padding2-top">Payment list</h2>
+
+<table align= "center" class="table table-striped">
+
+    <tr>
+      <th>Payment date</th><th>Payment ID</th><th>Member ID</th><th>NAME</th>
+      <th>Amount</th><th>Description</th>
+    </tr>
+    {% set payment = namespace(id = 4) %} 
+        {% for item in paymentlist %}
+
+        <tr>
+            {% if payment.id != item[4] %}
+            <td>{{item[4]}}</td> 
+            {% set payment.id = item[4] %}
+            {% else %}
+            <td></td>
+            {% endif %}
+            <td>{{item[0]}}</td>    <td>{{item[1]}}</td>    <td>{{item[7]}}</td>  
+            <td>{{item[2]}}</td>    <td>{{item[3]}}</td>   
+            
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "manager.html" %}
+{% block content %}
+<h2 align="center" class="layout_padding2-top layout_padding2-bottom">BOOKED PERSONAL SESSIONS</h2>
+
+<table align= "center" class="table table-borderless table-hover">
+    
+    <tr>
+        <th>MEMBER ID</th><th>NAME</th><th>MEMBER STATUS</th><th>PHONE</th><th>EMAIL</th><th>PERSONAL SESS ID</th><th>DATE</th><th>TIME</th>
+    </tr>
+    {% for session in sessionlist %}
+    <tr>
+        <td>{{session[1]}}</td><td>{{session[15]}}</td><td>{{session[18]}}</td><td>{{session[25]}}</td><td>{{session[26]}}</td><td>{{session[3]}}</td><td>{{session[5]}}</td><td>{{session[6]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

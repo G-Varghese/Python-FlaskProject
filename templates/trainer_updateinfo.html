@@ -1,0 +1,64 @@
+{% extends "trainer.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">Update Trainer Details Here: </h2>
+<form class= "update" action="/trainer/updateinfo" method="POST">
+<p>Required values are marked by an asterisk(*)</p>
+<table align="center" class="table table-borderless">
+        
+        <tr>
+            <td><label for="traine_id">Trainer ID *</label></td>
+            <td><input type="text" name="trainer_id" id="trainer_id" value="{{profileList[0]}}" readonly></td>
+        </tr>
+        <tr>
+            <td><label for="trainer_name">Name *</label></td>
+            <td><input type="text" name="trainer_name" id="trainer_name" value="{{profileList[2]}}"
+                required="required"></td>
+        </tr>
+        <tr>
+            <td><label for="trainer_gender">Gender</label></td>
+            <td><select name="trainer_gender" id="trainer_gender" >
+                <option value="{{profileList[6]}}">{{profileList[6]}}</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td><label for="trainer_dob">Dob *</label></td>
+            <td><input type="date" name="trainer_dob" value="{{profileList[3]}}"
+                required="required"></td></tr>
+        <tr>
+            <td><label for="trainer_city">Location</label></td>
+            <td><input type="text" name="trainer_city" value="{{profileList[5]}}"></td></tr>
+        <tr>
+            <td><label for="trainer_houseno">House number</label></td>
+            <td><input type="text" name="trainer_houseno" value="{{profileList[4]}}"></td></tr>
+        <tr>
+            <td><label for="trainer_phone">Phone *</label></td>
+            <td><input type="number" name="trainer_phone" value="{{profileList[11]}}" 
+             required="required" placeholder="nnnnnnnnnn" ></td>
+        </tr>
+        <tr>
+            <td><label for="trainer_email">Email *</label></td>
+            <td><input type="email" name="trainer_email" value="{{profileList[10]}}"
+                required="required"></td>
+        </tr> 
+        <tr>
+            <td><label for="trainer_specialization">Speicialization</label></td>
+            <td><input type="text" name="trainer_specialization" value="{{profileList[7]}}"></td>
+        </tr>
+        <tr>
+            <td><label for="trainer_qualification">Qualification</label></td>
+            <td><input type="text" name="trainer_qualification" value="{{profileList[8]}}"></td>
+        </tr>
+        <tr>
+            <td><label for="trainer_certification">Certification</label></td>
+            <td><input type="text" name="trainer_certification" value="{{profileList[9]}}"></td>
+        </tr>
+        
+    </table>
+    <button type="submit">SAVE</button> 
+    </form>
+    <script src="{{url_for('static', filename='js/datevalidation.js')}}"></script>
+{% endblock %}

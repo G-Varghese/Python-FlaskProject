@@ -1,0 +1,28 @@
+{% extends "manager.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">Payment list</h2>
+
+<table align= "center" class="table table-striped">
+
+    <tr>
+      <th>Payment date</th><th>Payment ID</th><th>Member ID</th><th>NAME</th>
+      <th>Amount</th><th>Description</th>
+    </tr>
+    {% set payment = namespace(id = 5) %} 
+        {% for item in paymentlist %}
+
+        <tr>
+            {% if payment.id != item[5] %}
+            <td>{{item[5]}}</td> 
+            {% set payment.id = item[5] %}
+            {% else %}
+            <td></td>
+            {% endif %}
+            <td>{{item[0]}}</td>    <td>{{item[1]}}</td>    <td>{{item[7]}}</td>  
+            <td>{{item[2]}}</td>    <td>{{item[3]}}</td>   
+            
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}

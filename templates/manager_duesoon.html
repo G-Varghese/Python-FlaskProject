@@ -1,0 +1,22 @@
+{% extends "manager.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">Subscription expries in 7 Days</h2>
+<a class="nav-link" href="{{ url_for('manager_subscription') }}">BACK</a><br><br>
+<table align="center" class="table table-hover">
+
+   <tr>
+   <th>MEMBER ID</th><th>NAME</th><th>EMAIL</th><th>LAST PAID</th>
+   </tr>
+   {% for member in memberslist %}
+   <tr>
+   {% for entry in member %}
+   <td>{{entry}}</td>
+   {% endfor %}
+   </tr>
+   {% endfor %}
+    
+</table>
+
+
+{% endblock %}

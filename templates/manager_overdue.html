@@ -1,0 +1,30 @@
+{% extends "manager.html" %}
+{% block content %}
+
+<h2 align="center" class="layout_padding2-top">Subscription Expried</h2>
+<a class="nav-link" href="{{ url_for('manager_subscription') }}">BACK</a><br><br>
+<table align="center" class="table table-hover">
+
+   <tr>
+   <th>MEMBER ID</th><th>NAME</th><th>EMAIL</th><th>LAST PAID</th>
+   <th>Subscription Status</th>
+   </tr>
+   {% for entry in memberslist %}
+   <tr>
+      {% if entry[4] == "Inactive" %} 
+      <tr bgcolor="orange" class="text-white">
+      {%else%}
+      <tr bgcolor="white" >
+      {% endif %}
+
+   <td>{{entry[0]}}</td><td>{{entry[1]}}</td><td>{{entry[2]}}</td><td>{{entry[3]}}</td>
+   <td>{{entry[4]}}</td>
+   
+  
+   </tr>
+   {% endfor %}
+    
+</table>
+
+
+{% endblock %}

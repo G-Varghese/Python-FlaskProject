@@ -1,0 +1,15 @@
+{% extends "member.html" %}
+{% block content %}
+<head>
+    <title>Confirmation Page</title>
+</head>
+<body>
+    <h1 align="center">Payment Done! Thank You!</h1>
+    <p align="center">You will be redirected to the homepage shortly.</p>
+    <script>
+        setTimeout(function() {
+            window.location.href = '/member';
+        }, 5000);
+    </script>
+</body>
+{% endblock %}

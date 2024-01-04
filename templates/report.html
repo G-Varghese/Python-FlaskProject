@@ -1,0 +1,22 @@
+{% extends "manager.html" %}
+{% block content %}
+
+  <table >
+  <br>  
+  <h3>Financial Report of Lincoln Fitness</h3>  
+  <br>
+  <tr> 
+    <form action="/manager/dailyreport" method="GET">
+        <input type="submit" value="DAILY REPORT"/>
+    </form>   
+    &nbsp;&nbsp;
+    <form action="/manager/monthlyreport" method="GET">
+        <input type="submit" value="MONTHLY REPORT"/>
+    </form> </tr><tr>
+      &nbsp;&nbsp;
+    <form action="/manager/yearlyreport" method="GET">
+        <input type="submit" value="YEARLY"/>
+    </form> <br><br><br>
+  </tr>  
+</table>
+{% endblock %}
